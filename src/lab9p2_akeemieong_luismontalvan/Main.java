@@ -4,7 +4,9 @@
  */
 package lab9p2_akeemieong_luismontalvan;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -68,6 +70,7 @@ public class Main extends javax.swing.JFrame {
         tituloM = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         CreacionA = new javax.swing.JDialog();
+        jPanel7 = new javax.swing.JPanel();
         CreacionE = new javax.swing.JDialog();
         jPanel6 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -479,15 +482,29 @@ public class Main extends javax.swing.JFrame {
             .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        jPanel7.setBackground(new java.awt.Color(0, 102, 0));
+        jPanel7.setForeground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 580, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 516, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout CreacionALayout = new javax.swing.GroupLayout(CreacionA.getContentPane());
         CreacionA.getContentPane().setLayout(CreacionALayout);
         CreacionALayout.setHorizontalGroup(
             CreacionALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         CreacionALayout.setVerticalGroup(
             CreacionALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel6.setBackground(new java.awt.Color(0, 204, 102));
@@ -616,6 +633,18 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         users.add(new Maestro(nacionalidadM.getText(), tituloM.getText(), nombreM.getText(), contrasenaM.getText(), Integer.parseInt(numerodecuentaM.getText())));
+        Dba db = new Dba("./DbaLab9.mdb");
+        db.conectar();
+        try {
+            int cuenta=Integer.parseInt(numerodecuentaM.getText());
+            String nacionalidad=nacionalidadM.getText(),titulo=tituloM.getText(),nombre=nombreM.getText(),contrasena=contrasenaM.getText();
+            db.query.execute("INSERT INTO Maestros"+ " (Nombre,Numero de Cuenta,Contrasena,Nacionalidad,Titulo)"+ " VALUES ('" + nombre + "', '" + cuenta +"','" + contrasena + "','" + nacionalidad + "', '" + titulo + "' )");
+            db.commit();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        db.desconectar();
+        
         nacionalidadM.setText("");
         tituloM.setText(""); 
         nombreM.setText("");
@@ -686,7 +715,7 @@ public class Main extends javax.swing.JFrame {
     }
     ArrayList<Usuario> users=new ArrayList();
     ArrayList<Asignatura>clases=new ArrayList<>();
-    
+    //Dba db=new Dba("./DbaLab9");
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog CreacionA;
     private javax.swing.JDialog CreacionE;
@@ -727,6 +756,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTree jTree1;
     private javax.swing.JDialog menuadmin;
