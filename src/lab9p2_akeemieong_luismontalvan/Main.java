@@ -4,6 +4,8 @@
  */
 package lab9p2_akeemieong_luismontalvan;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author SURFACEB2I7
@@ -51,15 +53,23 @@ public class Main extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
-        Creacion = new javax.swing.JDialog();
+        CreacionM = new javax.swing.JDialog();
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        numerodecuenta1 = new javax.swing.JTextField();
-        contrasena1 = new javax.swing.JTextField();
+        numerodecuentaM = new javax.swing.JTextField();
+        nombreM = new javax.swing.JTextField();
         jButton14 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        contrasenaM = new javax.swing.JTextField();
+        nacionalidadM = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        tituloM = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        CreacionA = new javax.swing.JDialog();
+        CreacionE = new javax.swing.JDialog();
+        jPanel6 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -77,10 +87,20 @@ public class Main extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(255, 153, 153));
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Crear Maestro");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(255, 153, 153));
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("Crear Alumno");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(255, 153, 153));
         jButton4.setForeground(new java.awt.Color(0, 0, 0));
@@ -102,6 +122,11 @@ public class Main extends javax.swing.JFrame {
         jButton7.setBackground(new java.awt.Color(255, 153, 153));
         jButton7.setForeground(new java.awt.Color(0, 0, 0));
         jButton7.setText("Crear Assignatura");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setBackground(new java.awt.Color(255, 153, 153));
         jButton8.setForeground(new java.awt.Color(0, 0, 0));
@@ -312,7 +337,7 @@ public class Main extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Creacion de Usuario");
+        jLabel7.setText("Creacion de Maestro");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
@@ -320,89 +345,174 @@ public class Main extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("Contrasena");
+        jLabel10.setText("Nombre");
 
-        numerodecuenta1.setBackground(new java.awt.Color(204, 153, 255));
-        numerodecuenta1.setForeground(new java.awt.Color(0, 0, 0));
-        numerodecuenta1.setDisabledTextColor(new java.awt.Color(255, 102, 102));
+        numerodecuentaM.setBackground(new java.awt.Color(204, 153, 255));
+        numerodecuentaM.setForeground(new java.awt.Color(0, 0, 0));
+        numerodecuentaM.setDisabledTextColor(new java.awt.Color(255, 102, 102));
 
-        contrasena1.setBackground(new java.awt.Color(204, 153, 255));
-        contrasena1.setForeground(new java.awt.Color(0, 0, 0));
-        contrasena1.setDisabledTextColor(new java.awt.Color(255, 102, 102));
-        contrasena1.addActionListener(new java.awt.event.ActionListener() {
+        nombreM.setBackground(new java.awt.Color(204, 153, 255));
+        nombreM.setForeground(new java.awt.Color(0, 0, 0));
+        nombreM.setDisabledTextColor(new java.awt.Color(255, 102, 102));
+        nombreM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contrasena1ActionPerformed(evt);
+                nombreMActionPerformed(evt);
             }
         });
 
         jButton14.setBackground(new java.awt.Color(204, 153, 255));
         jButton14.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton14.setForeground(new java.awt.Color(0, 0, 0));
-        jButton14.setText("Crear Usuario");
+        jButton14.setText("Crear Maestro");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton14ActionPerformed(evt);
             }
         });
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setText("Contrasena");
+
+        contrasenaM.setBackground(new java.awt.Color(204, 153, 255));
+        contrasenaM.setForeground(new java.awt.Color(0, 0, 0));
+        contrasenaM.setDisabledTextColor(new java.awt.Color(255, 102, 102));
+        contrasenaM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contrasenaMActionPerformed(evt);
+            }
+        });
+
+        nacionalidadM.setBackground(new java.awt.Color(204, 153, 255));
+        nacionalidadM.setForeground(new java.awt.Color(0, 0, 0));
+        nacionalidadM.setDisabledTextColor(new java.awt.Color(255, 102, 102));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("Titulo");
+
+        tituloM.setBackground(new java.awt.Color(204, 153, 255));
+        tituloM.setForeground(new java.awt.Color(0, 0, 0));
+        tituloM.setDisabledTextColor(new java.awt.Color(255, 102, 102));
+        tituloM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tituloMActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("Nacionalidad");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(157, 157, 157))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel12))
+                        .addGap(97, 97, 97)))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nacionalidadM, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nombreM, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numerodecuentaM, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(contrasenaM, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloM, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(173, 173, 173))
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addComponent(jLabel7)
-                .addContainerGap(281, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addGap(77, 77, 77)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel9)
-                                .addComponent(jLabel10))
-                            .addGap(44, 44, 44)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(contrasena1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(numerodecuenta1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addGap(153, 153, 153)
-                            .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(77, Short.MAX_VALUE)))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(jLabel7))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(166, 166, 166)
+                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(11, 11, 11)
                 .addComponent(jLabel7)
-                .addContainerGap(408, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addGap(95, 95, 95)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel9)
-                        .addComponent(numerodecuenta1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(89, 89, 89)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel10)
-                        .addComponent(contrasena1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(96, 96, 96)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(numerodecuentaM, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel10)
+                    .addComponent(nombreM, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(contrasenaM, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(nacionalidadM, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tituloM, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addGap(35, 35, 35)
+                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout CreacionLayout = new javax.swing.GroupLayout(Creacion.getContentPane());
-        Creacion.getContentPane().setLayout(CreacionLayout);
-        CreacionLayout.setHorizontalGroup(
-            CreacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout CreacionMLayout = new javax.swing.GroupLayout(CreacionM.getContentPane());
+        CreacionM.getContentPane().setLayout(CreacionMLayout);
+        CreacionMLayout.setHorizontalGroup(
+            CreacionMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        CreacionLayout.setVerticalGroup(
-            CreacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        CreacionMLayout.setVerticalGroup(
+            CreacionMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jLabel8.setText("jLabel8");
+        javax.swing.GroupLayout CreacionALayout = new javax.swing.GroupLayout(CreacionA.getContentPane());
+        CreacionA.getContentPane().setLayout(CreacionALayout);
+        CreacionALayout.setHorizontalGroup(
+            CreacionALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        CreacionALayout.setVerticalGroup(
+            CreacionALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        jPanel6.setBackground(new java.awt.Color(0, 204, 102));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 653, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 438, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout CreacionELayout = new javax.swing.GroupLayout(CreacionE.getContentPane());
+        CreacionE.getContentPane().setLayout(CreacionELayout);
+        CreacionELayout.setHorizontalGroup(
+            CreacionELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        CreacionELayout.setVerticalGroup(
+            CreacionELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -495,7 +605,8 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(numerodecuenta.getText().equals("12141095")&&contrasena.getText().equals("HEYjude")){
-            
+            menuadmin.pack();
+            menuadmin.setVisible(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -504,12 +615,40 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        // TODO add your handling code here:
+        users.add(new Maestro(nacionalidadM.getText(), tituloM.getText(), nombreM.getText(), contrasenaM.getText(), Integer.parseInt(numerodecuentaM.getText())));
+        nacionalidadM.setText("");
+        tituloM.setText(""); 
+        nombreM.setText("");
+        contrasenaM.setText("");
+        numerodecuentaM.setText("");
     }//GEN-LAST:event_jButton14ActionPerformed
 
-    private void contrasena1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrasena1ActionPerformed
+    private void nombreMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreMActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_contrasena1ActionPerformed
+    }//GEN-LAST:event_nombreMActionPerformed
+
+    private void contrasenaMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrasenaMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contrasenaMActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        CreacionM.pack();
+        CreacionM.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        CreacionE.pack();
+        CreacionE.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        CreacionA.pack();
+        CreacionA.setVisible(true );
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void tituloMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tituloMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tituloMActionPerformed
 
     /**
      * @param args the command line arguments
@@ -545,11 +684,15 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
-
+    ArrayList<Usuario> users=new ArrayList();
+    ArrayList<Asignatura>clases=new ArrayList<>();
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDialog Creacion;
+    private javax.swing.JDialog CreacionA;
+    private javax.swing.JDialog CreacionE;
+    private javax.swing.JDialog CreacionM;
     private javax.swing.JTextField contrasena;
-    private javax.swing.JTextField contrasena1;
+    private javax.swing.JTextField contrasenaM;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -568,25 +711,31 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTree jTree1;
     private javax.swing.JDialog menuadmin;
     private javax.swing.JDialog menualumno;
     private javax.swing.JDialog menumaestro;
+    private javax.swing.JTextField nacionalidadM;
+    private javax.swing.JTextField nombreM;
     private javax.swing.JTextField numerodecuenta;
-    private javax.swing.JTextField numerodecuenta1;
+    private javax.swing.JTextField numerodecuentaM;
+    private javax.swing.JTextField tituloM;
     // End of variables declaration//GEN-END:variables
 }
