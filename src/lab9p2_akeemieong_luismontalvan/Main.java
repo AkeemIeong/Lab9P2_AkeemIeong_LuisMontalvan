@@ -637,7 +637,10 @@ public class Main extends javax.swing.JFrame {
         db.conectar();
         try {
             int cuenta=Integer.parseInt(numerodecuentaM.getText());
-            String nacionalidad=nacionalidadM.getText(),titulo=tituloM.getText(),nombre=nombreM.getText(),contrasena=contrasenaM.getText();
+            String nacionalidad=nacionalidadM.getText()
+                    ,titulo=tituloM.getText()
+                    ,nombre=nombreM.getText()
+                    ,contrasena=contrasenaM.getText();
             db.query.execute("INSERT INTO Maestros"+ " (Nombre,Numero de Cuenta,Contrasena,Nacionalidad,Titulo)"+ " VALUES ('" + nombre + "', '" + cuenta +"','" + contrasena + "','" + nacionalidad + "', '" + titulo + "' )");
             db.commit();
         } catch (SQLException ex) {
