@@ -45,11 +45,11 @@ public class Maestro extends Usuario{
         this.titulo = titulo;
     }
 
-    public ArrayList<String> getClases() {
+    public ArrayList<Asignatura> getClases() {
         return clases;
     }
 
-    public void setClases(ArrayList<String> clases) {
+    public void setClases(ArrayList<Asignatura> clases) {
         this.clases = clases;
     }
     
