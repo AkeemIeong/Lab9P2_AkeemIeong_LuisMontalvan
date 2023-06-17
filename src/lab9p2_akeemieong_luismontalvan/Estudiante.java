@@ -11,15 +11,15 @@ import java.util.ArrayList;
  * @author luism
  */
 public class Estudiante extends Usuario{
-   private String Carrera;
+   private String Carrera,beca;
    private int indice,descuento,clasesA;
-   private boolean beca;
+   
    ArrayList<Asignatura>clases = new ArrayList();
 
     public Estudiante() {
     }
 
-    public Estudiante(String Carrera, int indice, int descuento, int clasesA, boolean beca, String Nombre, String contrasena, int NumCuenta) {
+    public Estudiante(String Carrera, int indice, int descuento, int clasesA, String beca, String Nombre, String contrasena, int NumCuenta) {
         super(Nombre, contrasena, NumCuenta);
         this.Carrera = Carrera;
         this.indice = indice;
@@ -60,11 +60,11 @@ public class Estudiante extends Usuario{
         this.clasesA = clasesA;
     }
 
-    public boolean isBeca() {
+    public String isBeca() {
         return beca;
     }
 
-    public void setBeca(boolean beca) {
+    public void setBeca(String beca) {
         this.beca = beca;
     }
 
