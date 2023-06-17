@@ -140,6 +140,11 @@ public class Main extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         buttonGroup1 = new javax.swing.ButtonGroup();
+        EliminarM = new javax.swing.JDialog();
+        jPanel9 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton23 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -205,6 +210,11 @@ public class Main extends javax.swing.JFrame {
         jButton9.setBackground(new java.awt.Color(255, 153, 153));
         jButton9.setForeground(new java.awt.Color(0, 0, 0));
         jButton9.setText("Eliminar Maestro");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jButton10.setBackground(new java.awt.Color(255, 153, 153));
         jButton10.setForeground(new java.awt.Color(0, 0, 0));
@@ -1254,6 +1264,68 @@ public class Main extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jPanel9.setBackground(new java.awt.Color(153, 255, 153));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nombre", "Titulo", "Numero de Cuenta ", "Contrasena"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable1);
+
+        jButton23.setText("Eliminar");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout EliminarMLayout = new javax.swing.GroupLayout(EliminarM.getContentPane());
+        EliminarM.getContentPane().setLayout(EliminarMLayout);
+        EliminarMLayout.setHorizontalGroup(
+            EliminarMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        EliminarMLayout.setVerticalGroup(
+            EliminarMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 102, 102));
@@ -1450,7 +1522,7 @@ public class Main extends javax.swing.JFrame {
         try {
       
             
-            db.query.execute("INSERT INTO Asignaturas"+ " (Nombre,Codigo de Asignatura,Codigo de Seccion,Horario,Cantidad de Unidades Valorativas,Aula,Edificio,Cantidad de Alumnos,Modalidad,Dias que se Imparte)"+ " VALUES ('" + nombreC.getText() + "', '" + codigoasig +"','" +  codigosec+ "','" + horario + "', '" + Integer.parseInt(unidad) + "', '" + Integer.parseInt(a[0]) +"', '" + Integer.parseInt(a[1]) +"', '" +Integer.parseInt(alumnosL.getText())+ "','" + diasqueseimparte  + "', '" +   modalidad+ "')" );
+            db.query.execute("INSERT INTO Asignaturas"+ " (Nombre,Codigo de Asignatura,Codigo de Seccion,Horario,Cantidad de Unidades Valorativas,Aula,Edificio,Cantidad de Alumnos,Modalidad,Dias que se Imparte)"+ " VALUES ('" + nombreC.getText() + "', '" + Integer.parseInt(codigoasignaturaC.getText()) +"','" + Integer.parseInt(codigoseccionC.getText())+ "','" + horarioC.getText() + "', '" + Integer.parseInt(unidadesC.getText()) + "', '" + Integer.parseInt(a[0]) +"', '" + Integer.parseInt(a[1]) +"', '" +Integer.parseInt(alumnosL.getText())+ "','" + diasC.getText()  + "', '" +   modalidadC.getText()+ "')" );
             db.commit();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -1549,6 +1621,26 @@ public class Main extends javax.swing.JFrame {
         CreacionL.setVisible(true);
     }//GEN-LAST:event_jButton20ActionPerformed
 
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+       EliminarM.pack();
+       EliminarM.setVisible(true);
+       
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        int col=jTable1.getSelectedColumn();
+        int row=jTable1.getSelectedRow();
+        jTable1.removeRowSelectionInterval(col, row);
+        for (Usuario user : users) {
+            if(user instanceof Maestro){
+                for (int i = 0; i < jTable1.getRowCount(); i++) {
+                    
+                }
+            }
+        }
+    }//GEN-LAST:event_jButton23ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1592,6 +1684,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JDialog CreacionE;
     private javax.swing.JDialog CreacionL;
     private javax.swing.JDialog CreacionM;
+    private javax.swing.JDialog EliminarM;
     private javax.swing.JLabel Nombre;
     private javax.swing.JLabel NumerodeCuenta;
     private javax.swing.JTextField alumnosC;
@@ -1629,6 +1722,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -1685,8 +1779,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTree jTree1;
     private javax.swing.JDialog menuadmin;
     private javax.swing.JDialog menualumno;
