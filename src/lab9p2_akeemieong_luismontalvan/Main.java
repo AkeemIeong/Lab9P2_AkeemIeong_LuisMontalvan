@@ -53,6 +53,8 @@ public class Main extends javax.swing.JFrame {
         jButton13 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
+        Nombre = new javax.swing.JLabel();
+        NumerodeCuenta = new javax.swing.JLabel();
         menumaestro = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -341,29 +343,39 @@ public class Main extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(116, 116, 116)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton13))))
+                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel5)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton13)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Nombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NumerodeCuenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel5))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(NumerodeCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(19, 19, 19)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1344,13 +1356,15 @@ public class Main extends javax.swing.JFrame {
                 }else
                     menualumno.pack();
                     menualumno.setVisible(true);
+                    Nombre.setText(user.getNombre());
+                    NumerodeCuenta.setText(Integer.toString(user.getNumCuenta()));
             }else
                 JOptionPane.showMessageDialog(this, "No esta el usuario registrado");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
@@ -1431,6 +1445,16 @@ public class Main extends javax.swing.JFrame {
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         String [] a=aulaC.getText().split("/");
         clases.add(new Clase(8480.41,nombreC.getText(), null, modalidadC.getText(), diasC.getText(), horarioC.getText(), Integer.parseInt(codigoasignaturaC.getText()), Integer.parseInt(codigoseccionC.getText()), Integer.parseInt(unidadesC.getText()),Integer.parseInt(a[0]), Integer.parseInt(a[1]), Integer.parseInt(alumnosC.getText())));
+        Dba db = new Dba("C:\\Users\\SURFACEB2I7\\Desktop\\progra 2\\ Lab9P2_AkeemIeong_LuisMontalvan");
+        db.conectar();
+        try {
+      
+            
+            db.query.execute("INSERT INTO Asignaturas"+ " (Nombre,Codigo de Asignatura,Codigo de Seccion,Horario,Cantidad de Unidades Valorativas,Aula,Edificio,Cantidad de Alumnos,Modalidad,Dias que se Imparte)"+ " VALUES ('" + nombreC.getText() + "', '" + codigoasig +"','" +  codigosec+ "','" + horario + "', '" + Integer.parseInt(unidad) + "', '" + Integer.parseInt(a[0]) +"', '" + Integer.parseInt(a[1]) +"', '" +Integer.parseInt(alumnosL.getText())+ "','" + diasqueseimparte  + "', '" +   modalidad+ "')" );
+            db.commit();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void nombreAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreAActionPerformed
@@ -1521,7 +1545,8 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_horarioLActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        // TODO add your handling code here:
+        CreacionL.pack();
+        CreacionL.setVisible(true);
     }//GEN-LAST:event_jButton20ActionPerformed
 
     /**
@@ -1567,6 +1592,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JDialog CreacionE;
     private javax.swing.JDialog CreacionL;
     private javax.swing.JDialog CreacionM;
+    private javax.swing.JLabel Nombre;
+    private javax.swing.JLabel NumerodeCuenta;
     private javax.swing.JTextField alumnosC;
     private javax.swing.JTextField alumnosL;
     private javax.swing.JTextField aprovadasA;
