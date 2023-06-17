@@ -13,12 +13,12 @@ import java.util.ArrayList;
 public class Asignatura {
     private String nombre,docente,modalidad,dias,horario;
     private int codigoA,codigoS,unidVal,aula,edificio,alumnos;
-    private double Precio;
+    
 
     public Asignatura() {
     }
 
-    public Asignatura(String nombre, String docente, String modalidad, String dias, String horario, int codigoA, int codigoS, int unidVal, int aula, int edificio, int alumnos, double Precio) {
+    public Asignatura(String nombre, String docente, String modalidad, String dias, String horario, int codigoA, int codigoS, int unidVal, int aula, int edificio, int alumnos) {
         this.nombre = nombre;
         this.docente = docente;
         this.modalidad = modalidad;
@@ -30,7 +30,7 @@ public class Asignatura {
         this.aula = aula;
         this.edificio = edificio;
         this.alumnos = alumnos;
-        this.Precio = Precio;
+        
     }
 
     public String getNombre() {
@@ -121,17 +121,11 @@ public class Asignatura {
         this.alumnos = alumnos;
     }
 
-    public double getPrecio() {
-        return Precio;
-    }
-
-    public void setPrecio(double Precio) {
-        this.Precio = Precio;
-    }
+    
 
     @Override
     public String toString() {
-        return "Asignatura{" + "nombre=" + nombre + ", docente=" + docente + ", modalidad=" + modalidad + ", dias=" + dias + ", horario=" + horario + ", codigoA=" + codigoA + ", codigoS=" + codigoS + ", unidVal=" + unidVal + ", aula=" + aula + ", edificio=" + edificio + ", alumnos=" + alumnos + ", Precio=" + Precio + '}';
+        return "Asignatura{" + "nombre=" + nombre + ", docente=" + docente + ", modalidad=" + modalidad + ", dias=" + dias + ", horario=" + horario + ", codigoA=" + codigoA + ", codigoS=" + codigoS + ", unidVal=" + unidVal + ", aula=" + aula + ", edificio=" + edificio + '}';
     }
     
 }
